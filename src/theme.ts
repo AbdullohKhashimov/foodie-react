@@ -1,18 +1,45 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
+import { common } from "@mui/material/colors";
+import { maxWidth } from "@mui/system";
 
-// A custom theme for this app
-const theme = createTheme({
-  cssVariables: true,
+/**
+ * LIGHT THEME (DEFAULT)
+ */
+const light = {
   palette: {
+    type: "light",
+    background: {
+      default: "#f8f8ff",
+      paper: common.white,
+    },
     primary: {
-      main: "#556cd6",
+      contrastText: "#d7b586",
+      main: "#343434",
     },
     secondary: {
-      main: "#19857b",
+      contrastText: "#343434",
+      main: "#d7b586",
     },
-    error: {
-      main: red.A400,
+    text: {
+      primary: "#343434",
+      secondary: "#d7b586",
+      dark: common.black,
+    },
+  },
+};
+
+// A custom theme for this app
+let theme = createTheme(light);
+theme = createTheme(theme, {
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        maxWidthLg: {
+          [theme.breakpoints.up("lg")]: {
+            maxWidth: "1300px",
+          },
+        },
+      },
     },
   },
 });

@@ -7,6 +7,7 @@ import App from "./app/App";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const container = document.getElementById("root")!; //-> real DOM
 const root = createRoot(container); //-> virtual DOM
@@ -16,7 +17,9 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        <Router>
+          <App />
+        </Router>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

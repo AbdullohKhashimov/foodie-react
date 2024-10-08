@@ -1,19 +1,38 @@
 import React from "react";
 import "../css/app.css";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Link, Route, Switch } from "react-router-dom";
+import About from "./screens/About";
+import Home from "./screens/Home";
 
 function App() {
   return (
-    <Container maxWidth="sm">
-      <Stack flexDirection={"column"}>
-        <Box sx={{ my: 4 }}>
-          <Typography variant="h1" component={"h1"}>
-            Create React App on Foodie
-          </Typography>
-          <Button variant={"outlined"}>Success</Button>
-        </Box>
-      </Stack>
-    </Container>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/users">
+          <About />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
