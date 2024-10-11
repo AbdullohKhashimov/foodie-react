@@ -1,0 +1,83 @@
+.home-navbar {
+  width: 100%;
+  height: 773px; /* Fixed height */
+  display: flex;
+  margin: 0;
+  overflow: hidden; /* Hide overflow */
+  position: relative; /* Positioning context */
+}
+
+.home-navbar::before {
+  content: ""; /* Pseudo-element for background */
+  position: absolute; /* Absolute positioning */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Stretch to the right */
+  bottom: 0; /* Stretch to the bottom */
+  background: url("/public/img/cofimg.webp") no-repeat center center;
+  background-size: cover; /* Use cover to fill space */
+  z-index: -1; /* Send it behind the content */
+  filter: contrast(1.2); /* Optional: Control blurriness (0 for no blur) */
+  animation: zoomBackground 30s ease-in-out infinite; /* Apply animation */
+}
+
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%; /* Start at original size */
+  }
+  50% {
+    background-size: 110%; /* Zoom in slightly */
+  }
+  100% {
+    background-size: 100%; /* Return to original */
+  }
+}
+
+.home-navbar a {
+  text-decoration: none;
+  color: #0e0e40; /* Default link color */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home-navbar .hover-line a {
+  font-weight: 900;
+  font-size: 1.5rem; /* Responsive font size */
+  color: #0e0e40; /* Default link color */
+  position: relative;
+  padding-bottom: 5px; /* Space for the underline */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.home-navbar .hover-line a:hover,
+.home-navbar .hover-line a.active {
+  color: #d03008; /* Change color on hover and when active */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.home-navbar .hover-line a .underline {
+  display: none; /* Hide underline by default */
+  position: absolute; /* Position relative to the text */
+  bottom: 0; /* Position exactly below the text */
+  left: 0;
+  right: 0;
+  border-bottom: solid 2px #d03008; /* Underline color */
+  transition: all 0.3s ease; /* Smooth transition for the underline */
+}
+
+.home-navbar .hover-line a:hover .underline,
+.home-navbar .hover-line a.active .underline {
+  display: block; /* Show underline on hover and when active */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .home-navbar .hover-line a {
+    font-size: 1.25rem; /* Adjust font size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-navbar .hover-line a {
+    font-size: 1rem; /* Further adjust font size for smaller screens */
+  }
+}
