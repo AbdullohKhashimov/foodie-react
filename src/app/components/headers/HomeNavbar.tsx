@@ -6,7 +6,7 @@ export function HomeNavbar() {
   const authMember = null;
   return (
     <div className="home-navbar">
-      <Container sx={{ mt: "55px", height: "642px" }}>
+      <Container sx={{ mt: "65px", height: "642px" }}>
         <Stack
           sx={{ height: "50px" }}
           flexDirection={"row"}
@@ -14,8 +14,27 @@ export function HomeNavbar() {
           alignItems={"center"}
         >
           <Box>
-            <NavLink to="/">
-              <img src="" alt="" style={{ width: "125px", height: "30px" }} />
+            <NavLink to="/" className={"fortune-link"}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 900,
+                  fontSize: "2rem",
+                  color: "#005F5B",
+                  transition:
+                    "color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease",
+                  textShadow: "0px 0px 0px rgba(208, 48, 8, 0)",
+                  boxShadow: "0px 2px 10px rgba(0, 0, 0, 1.3)", // Box shadow
+                  borderRadius: "10px",
+                  "&:hover": {
+                    color: "#E2D7E2",
+                    textShadow: "0px 0px 10px rgba(0,95,91, 0.8)", // Glowing effect on hover
+                    boxShadow: "0px 4px 20px rgba(0,95,91, 0.8)", // Stronger shadow on hover
+                  },
+                }}
+              >
+                FORTUNE
+              </Typography>
             </NavLink>
           </Box>
           <Stack
@@ -25,8 +44,15 @@ export function HomeNavbar() {
             alignItems={"center"}
           >
             <Box className={"hover-line"}>
-              <NavLink to="/" activeClassName="underline">
-                <Typography variant="h6">Home</Typography>
+              <NavLink to="/">
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 600,
+                  }}
+                >
+                  Home
+                </Typography>
                 <span className="underline"></span>
               </NavLink>
             </Box>
